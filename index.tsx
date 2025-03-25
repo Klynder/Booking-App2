@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View, Text } from 'react-native';
 import { Usuarios } from '@/constants/Usuario';
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -7,30 +7,21 @@ import { FlatList } from 'react-native-gesture-handler';
 export default function HomeScreen() {
   return (
     
-    <View style={styles.container}>
-    <Text style={styles.title}>Perfis de Cleintes</Text>
+    <View style={{}}>
+    <Text style={{}}>Perfis de Clientes</Text>
     <FlatList   
-      dat={Usuarios()}
+      data={Usuarios()}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({item}) => (
+        <View style={{}}>
+          <Text>Id: {item.id}</Text>
+          <Text>Nome: {item.nome}</Text>
+          <Text>Nome do grupo: {item.nome_grupo}</Text>
+
     />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
 });
